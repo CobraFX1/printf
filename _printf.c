@@ -32,6 +32,10 @@ int _printf(const char *format, ...)
 	int i = 0;
 	int count = 0;
 
+	if (format == NULL)
+	{
+		return(0);
+	}
 	va_start(args, format);
 	while (format && format[i])
 	{
@@ -54,6 +58,10 @@ int _printf(const char *format, ...)
 					break;
 			}
 			i += 2;
+		}
+		else if (format[i + 1] == '\0')
+		{
+			return (0);
 		}
 		else
 		{
