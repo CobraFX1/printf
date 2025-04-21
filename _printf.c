@@ -18,6 +18,11 @@ int print_string(char *str)
 			i++;
 		}
 	}
+	else
+	{
+		str = "(null)";
+		count += print_string(str);
+	}
 	return (count);
 }
 
