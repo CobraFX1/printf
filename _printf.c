@@ -1,16 +1,14 @@
 #include "main.h"
-#include <stdarg.h>
-#include <unistd.h> // Needed for write()
 
 int _putchar(char c)
 {
-	return (write(1, &c, 1));
+	return(write(1, &c, 1));
 }
 
 int print_string(char *str)
 {
-	int i = 0,
-	    int count = 0;
+	int i = 0;
+	int count = 0;
 
 	if (str != NULL)
 	{
@@ -26,8 +24,8 @@ int print_string(char *str)
 int _printf(const char *format, ...)
 {
 	va_list args;
-	int i = 0,
-	    int count = 0;
+	int i = 0;
+	int count = 0;
 
 	va_start(args, format);
 	while (format && format[i])
@@ -59,6 +57,5 @@ int _printf(const char *format, ...)
 		}
 	}
 	va_end(args);
-	return count;
+	return (count);
 }
-
