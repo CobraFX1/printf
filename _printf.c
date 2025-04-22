@@ -1,28 +1,6 @@
 #include "main.h"
-
-int _putchar(char c)
-{
-	return(write(1, &c, 1));
-}
-
-int print_string(char *str)
-{
-	int i = 0;
-        int count = 0;
-
-        if (!str)
-        {
-            str = "(null)";
-	    count += print_string(str);
-	    return (count);
-        }
-        while (str[i])
-        {
-            count += _putchar(str[i]);
-            i++;
-        }
-        return (count);
-}
+int _putchar(char c);
+int print_string(char *str);
 
 int _printf(const char *format, ...)
 {
@@ -57,12 +35,38 @@ int _printf(const char *format, ...)
                 }
                     i += 2;
             }
-            else
+	    else if (format[i] == '%' && !format[i + 1])
+	    {
+		    return (0);
+	    }
+	    else
             {
                 count += _putchar(format[i]);
                 i++;
             }
         }
         va_end(args);
+        return (count);
+}
+
+int _putchar(char c)
+{
+        return(write(1, &c, 1));
+}
+
+int print_string(char *str)
+{
+        int i = 0;
+        int count = 0;
+
+        if (!str)
+        {
+            str = "(null)";
+        }
+        while (str[i])
+        {
+            count += _putchar(str[i]);
+            i++;
+        }
         return (count);
 }
