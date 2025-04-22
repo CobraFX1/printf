@@ -1,7 +1,7 @@
 #include "main.h"
 int _putchar(char c);
 int print_string(char *str);
-
+int print_num(int n);
 /**
  * _printf - prints a format string
  * @format: parameter
@@ -35,6 +35,10 @@ int _printf(const char *format, ...)
 					break;
 				case '%':
 					count += _putchar('%');
+					break;
+				case 'd':
+				case 'i':
+					count += print_num(va_arg(args, int));
 					break;
 				default:
 					count += _putchar('%');
@@ -103,4 +107,26 @@ int print_string(char *str)
 		i++;
 	}
 	return (count);
+}
+int print_num(int n)
+{
+	int count = 0;
+	unsigned int num;
+
+	if (n < 0)
+	{
+		count += _putchar('-');
+		num = -n;
+	}
+	else
+	{
+		num = n;
+	}
+	if (num / 10)
+	{
+		count += print_num(num / 10);
+	}
+	count += _putchar((num % 10) + '0');
+	return (count);
+	}
 }
