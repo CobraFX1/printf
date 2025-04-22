@@ -78,7 +78,7 @@ int _putchar(char c)
 	{
 		write(1, buffer, index);
 		index = 0;
-		return (-1);
+		return (1);
 	}
 	buffer[index] = c;
 	index++;
