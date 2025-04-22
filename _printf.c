@@ -1,6 +1,7 @@
 #include "main.h"
 int _putchar(char c);
 int print_string(char *str);
+int print_num(int n);
 
 int _printf(const char *format, ...)
 {
