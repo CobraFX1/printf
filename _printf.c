@@ -72,7 +72,7 @@ int _printf(const char *format, ...)
 int _putchar(char c)
 {
 	static char buffer[1024];
-	static int index;
+	static int index = 0;
 
 	if (c == -1 || index >= 1024)
 	{
