@@ -128,5 +128,4 @@ int print_num(int n)
 	}
 	count += _putchar((num % 10) + '0');
 	return (count);
-	}
 }
