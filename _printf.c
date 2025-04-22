@@ -33,12 +33,6 @@ int _printf(const char *format, ...)
 				case 's':
 					count += print_string(va_arg(args, char *));
 					break;
-				case 'd':
-					count += print_num(va_arg(args, int));
-					break;
-				case 'i':
-					count += print_num(va_arg(args, int));
-					break;
 				case '%':
 					count += _putchar('%');
 					break;
