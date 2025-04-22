@@ -8,67 +8,60 @@ int _putchar(char c)
 int print_string(char *str)
 {
 	int i = 0;
-	int count = 0;
+        int count = 0;
 
-	if (str != NULL)
-	{
-		while (str[i])
-		{
-			count += _putchar(str[i]);
-			i++;
-		}
-	}
-	else
-	{
-		str = "(null)";
-		count += print_string(str);
-	}
-	return (count);
+        if (!str)
+        {
+            str = "(null)";
+            count += print_string(str);
+        }
+        while (str[i])
+        {
+            count += _putchar(str[i]);
+            i++;
+        }
+        return (count);
 }
 
 int _printf(const char *format, ...)
 {
-	va_list args;
-	int i = 0;
-	int count = 0;
+        va_list args;
+        int i = 0;
+        int count = 0;
 
-	if (format == NULL)
-	{
-		return(0);
-	}
-	va_start(args, format);
-	while (format && format[i])
-	{
-		if (format[i] == '%' && format[i + 1])
-		{
-			switch (format[i + 1])
-			{
-				case 'c':
-					count += _putchar(va_arg(args, int));
-					break;
-				case 's':
-					count += print_string(va_arg(args, char *));
-					break;
-				case '%':
-					count += _putchar('%');
-					break;
-				default:
-					count += _putchar('%');
-					count += _putchar(format[i + 1]);
-					break;
-			}
-			i += 2;
-		}
-		else if (format[i + 1] == '\0')
-		{
-			return (0);
-		}
-		else
-		{
-			count += _putchar(format[i]);
-			i++;
-		}
-	}
-	va_end(args);
-	return (count);
+        if (!format)
+        {
+        	return(0);
+        }
+        va_start(args, format);
+        while (format[i])
+        {
+            if (format[i] == '%' && format[i + 1])
+            {
+                switch (format[i + 1])
+                {
+                    case 'c':
+                            count += _putchar(va_arg(args, int));
+                            break;
+                    case 's':
+                            count += print_string(va_arg(args, char *));
+                            break;
+                    case '%':
+                            count += _putchar('%');
+                            break;
+                    default:
+                            count += _putchar('%');
+                            count += _putchar(format[i + 1]);
+                            break;
+                }
+                    i += 2;
+            }
+            else
+            {
+                count += _putchar(format[i]);
+                i++;
+            }
+        }
+        va_end(args);
+        return (count);
 }
