@@ -23,7 +23,7 @@ int print_bin(unsigned int n)
 	}
 	for (i = i - 1; i >= 0; i--)
 	{
-		count += _putchar(binary[i]);
+		count += _putchar(binary[i] + '0');
 	}
 	return (count);
 }
