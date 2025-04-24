@@ -6,18 +6,24 @@
  *
  * Return: number of characters printed
  */
-int print_bin(int n)
+int print_bin(unsigned int n)
 {
-	int num = 1;
-	int count;
+	int i = 0;
+	int count = 0;
+	int binary[32];
 
-	if (!n)
-		return (0);
-	while (num > 0)
+	if (n == 0)
 	{
-		num = n;
-		count += _putchar((num % 2) + '0');
-		n = (num / 2);
+		return (_putchar(0));
+	}
+	while (n > 0)
+	{
+		binary[i++] = n % 2;
+		n /= 2;
+	}
+	for (i = i - 1; i >= 0; i--)
+	{
+		count += _putchar(binary[i]);
 	}
 	return (count);
 }
