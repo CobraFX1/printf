@@ -14,7 +14,7 @@ int print_bin(unsigned int n)
 
 	if (n == 0)
 	{
-		return (_putchar(0));
+		return (_putchar('0'));
 	}
 	while (n > 0)
 	{
