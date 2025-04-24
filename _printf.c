@@ -40,6 +40,9 @@ int _printf(const char *format, ...)
 				case 'i':
 					count += print_num(va_arg(args, int));
 					break;
+				case 'b':
+					count += print_bin(va_arg(args, int));
+					break;
 				default:
 					count += _putchar('%');
 					count += _putchar(format[i + 1]);
