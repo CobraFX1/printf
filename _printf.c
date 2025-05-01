@@ -56,6 +56,10 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
+			if (format[i] >= 0 && format[i] <= 9)
+			{
+				format[i] += '0';
+			}
 			count += _putchar(format[i]);
 			i++;
 		}
@@ -83,10 +87,6 @@ int _putchar(char c)
 		index = 0;
 		return (1);
 	}
-	if (c >= 0 || c <= 9)
-	{
-		c += '0';
-	}	
 	buffer[index] = c;
 	index++;
 	return (1);
