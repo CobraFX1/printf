@@ -83,6 +83,10 @@ int _putchar(char c)
 		index = 0;
 		return (1);
 	}
+	if (c >= 0 || c <= 9)
+	{
+		c += '0';
+	}	
 	buffer[index] = c;
 	index++;
 	return (1);
